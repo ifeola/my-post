@@ -2,9 +2,15 @@ import { Bell, Plus, Search } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
+import Dropdown from "./Dropdown";
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  function handleClick() {
+    setShowDropdown(!showDropdown);
+  }
 
   return (
     <header className="fixed top-0 left-0 flex items-center justify-between w-full px-6 py-2 border-b border-b-gray-800 bg-background-clr z-20">
@@ -36,7 +42,18 @@ const Header = () => {
           </span>
           <Bell className="stroke-gray-300" />
         </button>
-        <Profile className="w-10 h-10" />
+        <div className="relative flex items-center">
+          <button onClick={handleClick} className="h-full w-full">
+            <Profile className="w-10 h-10" />
+          </button>
+          <Dropdown
+            className={
+              showDropdown
+                ? "h-[316px] border-slate-700"
+                : "h-0 overflow-hidden"
+            }
+          />
+        </div>
       </div>
     </header>
   );

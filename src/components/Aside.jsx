@@ -8,7 +8,7 @@ import {
   Newspaper,
   Users,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Profile from "./Profile";
 
 const navData = [
@@ -58,7 +58,13 @@ const Aside = () => {
   return (
     <aside className="flex flex-col h-screen gap-10 pt-20 border-r w-48 border-r-gray-800 bg-background-clr">
       <div>
-        <Profile className="mb-10 ml-4 w-12 h-12" />
+        <Link to="/" className="mb-10 ml-4 flex items-center gap-2">
+          <Profile className="w-12 h-12 block" />
+          <div>
+            <h4 className="font-bold text-base">A. Abayomi</h4>
+            <span className="font-medium text-gray-400 text-sm">@abdulwaheed</span>
+          </div>
+        </Link>
         <h4 className="mb-2 ml-4 text-base font-medium">My Feed</h4>
         <ul className="nav__list">
           {navData.slice(0, 3).map((data, index) => {
