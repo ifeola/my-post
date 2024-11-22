@@ -13,7 +13,7 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 flex items-center justify-between w-full px-6 py-2 border-b border-b-gray-800 bg-background-clr z-20">
+    <header className="fixed top-0 left-0 z-20 flex items-center justify-between w-full px-6 py-2 border-b border-b-gray-800 bg-background-clr">
       <Link to="/" className="flex items-center gap-2">
         <div className="w-6 h-6 bg-teal-600 " />
         <span className="text-xl font-bold">PostMail</span>
@@ -37,19 +37,19 @@ const Header = () => {
           <Plus className="fill-background-clr stroke-background-clr" />
         </button>
         <button className="relative grid w-10 h-10 bg-gray-800 rounded-lg place-content-center">
-          <span className="absolute inline-flex items-center justify-center w-5 h-5 bg-red-600 rounded-md -right-1 -top-1 text-white text-xs font-medium">
+          <span className="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-red-600 rounded-md -right-1 -top-1">
             30
           </span>
           <Bell className="stroke-gray-300" />
         </button>
         <div className="relative flex items-center">
-          <button onClick={handleClick} className="h-full w-full">
+          <button onClick={handleClick} className="w-full h-full">
             <Profile className="w-10 h-10" />
           </button>
           <Dropdown
             className={
               showDropdown
-                ? "h-[316px] border-slate-700"
+                ? "h-[316px] border-neutral-700"
                 : "h-0 overflow-hidden"
             }
           />

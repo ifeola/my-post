@@ -8,13 +8,15 @@ const Posts = () => {
 
   if (isLoading)
     return (
-      <div className="w-full mt-48 flex items-center justify-center">
-        <Loading />
+      <div className="grid grid-cols-[repeat(auto-fit,_minmax(min(100%,_240px),_1fr))] gap-6 grid-flow-dense">
+        {[...Array(9)].map((_, index) => {
+          return <Loading />;
+        })}
       </div>
     );
   if (error) return <h2>There was an error!</h2>;
   return (
-    <ul className="grid grid-cols-3 gap-6">
+    <ul className="grid grid-cols-[repeat(auto-fit,_minmax(min(100%,_240px),_1fr))] gap-6 grid-flow-dense auto-rows-[auto_auto_auto_auto]">
       {data.posts.map((post) => {
         return (
           <Post
