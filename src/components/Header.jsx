@@ -13,7 +13,7 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 z-20 flex items-center justify-between w-full px-6 py-2 border-b border-b-gray-800 bg-background-clr">
+    <header className="fixed top-0 left-0 z-20 flex items-center justify-between w-full h-16 px-6 py-2 border-b border-b-gray-800 bg-background-clr">
       <Link to="/" className="flex items-center gap-2">
         <div className="w-6 h-6 bg-teal-600 " />
         <span className="text-xl font-bold">PostMail</span>

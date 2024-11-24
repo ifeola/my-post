@@ -1,4 +1,9 @@
+import { Context } from "../hooks/usePost";
+
 const Bookmarks = () => {
-  return <div>Bookmarks</div>;
+  const { state } = Context();
+  console.log(state);
+
+  return <section>Hello</section>;
 };
 export default Bookmarks;

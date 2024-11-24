@@ -8,28 +8,34 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Context } from "../hooks/usePost";
 
 const Post = ({ title, body, tags, reactions, views, fullname, id }) => {
   const [like, setLike] = useState(false);
+  const [bookmark, setBookmark] = useState(false);
   const [dislike, setDislike] = useState(false);
   const [likeCount, setLikeCount] = useState(reactions.likes);
   const [dislikeCount, setDislikeCount] = useState(reactions.dislikes);
+  const { state, dispatch } = Context();
 
   function handleLike() {
-    setLike((prev) => {
-      return !prev;
-    });
+    setLike(!like);
   }
 
   function handleDislike() {
     setDislike(!dislike);
   }
 
+  // function handleBookmark() {
+  //   setBookmark(!bookmark);
+  // }
+
   const productId = useParams();
-  console.log(productId);
 
   return (
-    <li className="relative p-4 border border-gray-800 rounded grid-rows-[subgrid] grid row-[span_4] gap-1">
+    <li
+      className="relative p-4 border border-gray-800 rounded grid-rows-[subgrid] grid row-[span_4] gap-1"
+      key={id}>
       <Link
         to={`/posts/${id}`}
         className="absolute inset-0 z-0 w-full h-full"></Link>
@@ -52,18 +58,16 @@ const Post = ({ title, body, tags, reactions, views, fullname, id }) => {
       <p className="leading-7 text-truncate text-pretty text-ellipsis text-white/80">
         {body}
       </p>
-      <div className="flex items-center justify-between mt-4 post-links z-10">
+      <div className="z-10 flex items-center justify-between mt-4 post-links">
         <div className="flex items-center gap-3">
           <button
-            className="flex items-center gap-1 hover:bg-red-600/30 p-1 rounded-xl"
+            className="flex items-center gap-1 p-1 hover:bg-red-600/30 rounded-xl"
             onClick={handleLike}>
-            <ThumbsUp
-              className={`${like} ? "fill-red-600 stroke-red-600" : ""`}
-            />
+            <ThumbsUp className={like ? "fill-red-600 stroke-red-600" : ""} />
             <span className="text-sm">{likeCount}</span>
           </button>
           <button
-            className="flex items-center gap-1 hover:bg-blue-600/30  p-1 rounded-xl"
+            className="flex items-center gap-1 p-1 hover:bg-blue-600/30 rounded-xl"
             onClick={handleDislike}>
             <ThumbsDown
               className={dislike ? "fill-blue-600 stroke-blue-600" : ""}
@@ -81,8 +85,25 @@ const Post = ({ title, body, tags, reactions, views, fullname, id }) => {
             <span className="text-sm">{views}</span>
           </button>
           <div className="flex items-center gap-3 p-1 px-3 border rounded-full border-teal-100/20">
-            <button>
-              <Bookmark />
+            <button
+              onClick={() => {
+                setBookmark(!bookmark);
+                dispatch({
+                  type: "ADD_TO_BOOKMARKS",
+                  payload: {
+                    title,
+                    body,
+                    tags,
+                    reactions,
+                    views,
+                    fullname,
+                    id,
+                  },
+                });
+              }}>
+              <Bookmark
+                className={bookmark ? "fill-purple-600 stroke-purple-600" : ""}
+              />
             </button>
             <button>
               <LinkIcon />

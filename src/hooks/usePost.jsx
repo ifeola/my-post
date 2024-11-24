@@ -1,12 +1,23 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 export const PostContext = createContext({
-  favourites: [],
+  bookmarks: [],
 });
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "ADD_TO_BOOKMARKS":
+      return [...state.bookmarks, action.payload];
+  }
+}
+
 const PostContextContainer = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, {
+    bookmarks: [],
+  });
+
   return (
-    <PostContext.Provider value={{ name: "yomi" }}>
+    <PostContext.Provider value={{ state, dispatch }}>
       {children}
     </PostContext.Provider>
   );
