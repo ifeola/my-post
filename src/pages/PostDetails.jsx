@@ -177,7 +177,7 @@ const PostDetails = () => {
                 <span>Likes</span>
               </div>
               <div className="flex items-center gap-1">
-                <span className="text-sm">{data.comments}</span>
+                <span className="text-sm">30</span>
                 <span>Comments</span>
               </div>
             </div>

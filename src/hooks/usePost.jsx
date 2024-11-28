@@ -7,7 +7,9 @@ export const PostContext = createContext({
 function reducer(state, action) {
   switch (action.type) {
     case "ADD_TO_BOOKMARKS":
-      return [...state.bookmarks, action.payload];
+      return {
+        bookmarks: [...state.bookmarks, action.payload],
+      };
   }
 }
 

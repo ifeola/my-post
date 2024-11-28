@@ -50,7 +50,7 @@ const Header = () => {
             className={
               showDropdown
                 ? "h-[316px] border-neutral-700"
-                : "h-0 overflow-hidden"
+                : "h-0 overflow-hidden border-transparent"
             }
           />
         </div>

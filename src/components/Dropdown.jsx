@@ -11,7 +11,7 @@ import {
 const Dropdown = ({ className }) => {
   return (
     <div
-      className={`absolute top-14 right-0 w-64 bg-background-clr border border-transparent rounded-xl transition-[height] ${className}`}>
+      className={`absolute top-14 right-0 w-64 bg-background-clr border  rounded-xl transition-all ${className}`}>
       <div className="flex items-center gap-2 p-4">
         <Profile className="w-12 h-12" />
         <div>

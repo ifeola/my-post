@@ -1,6 +1,7 @@
 import Post from "./Post";
 import useFetch from "../hooks/useFetch";
 import Loading from "./Loading";
+import Error from "./Error";
 // import posts from "../../public/posts.json";
 
 const Posts = () => {
@@ -14,7 +15,7 @@ const Posts = () => {
         })}
       </div>
     );
-  if (error) return <h2>There was an error!</h2>;
+  if (error) return <Error />;
   return (
     <ul className="grid grid-cols-[repeat(auto-fit,_minmax(min(100%,_240px),_1fr))] gap-6 grid-flow-dense auto-rows-[auto_auto_auto_auto]">
       {data.posts.map((post) => {

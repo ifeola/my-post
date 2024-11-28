@@ -62,7 +62,9 @@ const Aside = () => {
           <Profile className="w-12 h-12 block" />
           <div>
             <h4 className="font-bold text-base">A. Abayomi</h4>
-            <span className="font-medium text-gray-400 text-sm">@abdulwaheed</span>
+            <span className="font-medium text-gray-400 text-sm">
+              @abdulwaheed
+            </span>
           </div>
         </Link>
         <h4 className="mb-2 ml-4 text-base font-medium">My Feed</h4>
