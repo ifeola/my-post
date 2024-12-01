@@ -3,44 +3,48 @@
 @tailwind base;
 
 html {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 body {
-  @apply text-gray-300 bg-background-clr;
+	@apply text-gray-300 bg-background-clr;
 }
 
 .nav__list a {
-  @apply flex items-center gap-2 px-4 py-2 transition border-r-2;
+	@apply flex items-center gap-2 px-4 py-2 transition border-r-2;
 }
 
 svg {
-  @apply w-4;
+	@apply w-4;
 }
 
 .post-links svg,
 .post-links span {
-  @apply stroke-white/60 text-white/60;
+	@apply stroke-white/60 text-white/60;
+}
+
+section {
+	overscroll-behavior-y: contain;
 }
 
 section::-webkit-scrollbar {
-  width: 10px;
+	width: 10px;
 }
 
 section::-webkit-scrollbar-track {
-  background-color: rgb(59, 59, 59);
+	background-color: rgb(59, 59, 59);
 }
 
 section::-webkit-scrollbar-thumb {
-  background-color: #172029;
-  border-radius: 50px;
+	background-color: #172029;
+	border-radius: 50px;
 }
 
 .text-truncate {
-  display: -webkit-box; /* Create a flexible container */
-  line-clamp: 3;
-  -webkit-line-clamp: 3; /* Limit the number of lines */
-  -webkit-box-orient: vertical; /* Specify the direction of the box */
-  overflow: hidden; /* Hide the overflowed content */
-  text-overflow: ellipsis; /* Add the ellipsis at the end of the last visible line */
+	display: -webkit-box; /* Create a flexible container */
+	line-clamp: 3;
+	-webkit-line-clamp: 3; /* Limit the number of lines */
+	-webkit-box-orient: vertical; /* Specify the direction of the box */
+	overflow: hidden; /* Hide the overflowed content */
+	text-overflow: ellipsis; /* Add the ellipsis at the end of the last visible line */
 }
